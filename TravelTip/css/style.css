@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.main-header {
+    margin-block-end: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-inline: 20px;
+    /* height: 100; */
+    margin-block-end: 10px;
+    align-items: center;
+}
+
+.logo {
+    font-size: 3rem;
+}
+
+.curr-location-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-inline: 20px;
+}
+
+main {
+    display: flex;
+    padding-inline: 20px;
+}
+
+.map {
+    margin-block-start: 100px;
+    width: 50%;
+    height: 50%;
+    flex-basis: 50%;
+}
+
+.location-list {
+    flex-basis: 50%;
+}

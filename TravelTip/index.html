@@ -3,11 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <title>TravelTip</title>
 </head>
 <body>
-    <h1>TravelTip Starter</h1>
-    <div id="map" style="width: 100%; height: 400px;"></div>
+    <header class="main-header">
+        <h1 class="logo">TravelTip</h1>
+        <div class="search">
+            <input
+                type="search"
+                placeholder="Search"
+            />
+            <button >Search</button>
+            <button >My location</button>
+
+    </header>
+    <section class="curr-location-container">
+        <h2 class="curr-location-title">Tel-Aviv, Israel</h2>
+        <button>Copy location</button>
+    </section>
+    <main>
+        <ul class="location-list">
+            <li>address 1</li>
+            <li>address 2</li>
+            <li>address 3</li>
+        </ul>
+        <div id="map" class="map" style="width: 50%; height: 400px;"></div>
+    </main>
     <button onclick="onAddMarker()" class="btn-add-marker">Add Marker Speific Location</button>
     <button onclick="onGetUserPos()" class="btn-user-pos">Get User Position</button>
     <button onclick="onGetLocs()" class="btn-get-locs">Get Locations</button>
