@@ -26,14 +26,14 @@ function getPosition() {
 }
 
 function onGetLocation() {
-    const input = ev.target.elements[0].value
-    locService.getLocation(input).then(renderSelectedLocation)
+    const elinput = document.querySelector('.input-search')
+    locService.getLocation(elinput.value).then(renderSelectedLocation)
 }
 
 function renderSelectedLocation(loc) {
     console.log(loc)
     const elCurrLoc = document.querySelector('.curr-location-title')
-    elCurrLoc.innerHTML = `Location: ${loc.steetAddress}, ${loc.city},  ${loc.country} `
+    elCurrLoc.innerHTML = `Location: ${loc.streetAddress}, ${loc.city},  ${loc.country} `
 }
 
 function onAddMarker() {
