@@ -6,6 +6,7 @@ window.onAddMarker = onAddMarker
 window.onPanTo = onPanTo
 window.onGetLocs = onGetLocs
 window.onGetUserPos = onGetUserPos
+window.onGetLocation = onGetLocation
 
 function onInit() {
     mapService.initMap()
@@ -21,6 +22,12 @@ function getPosition() {
     return new Promise((resolve, reject) => {
         navigator.geolocation.getCurrentPosition(resolve, reject)
     })
+}
+
+onGetLocation()
+
+function onGetLocation() {
+    locService.getLocation('הירקון 25, תל אביב, ישראל')
 }
 
 function onAddMarker() {
