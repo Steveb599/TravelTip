@@ -24,10 +24,12 @@ function getPosition() {
     })
 }
 
-onGetLocation()
-
-function onGetLocation() {
-    locService.getLocation('הירקון 25, תל אביב, ישראל')
+function onGetLocation(ev) {
+    ev.preventDefault()
+    console.log(ev)
+    const input = ev.target.elements[0].value
+    locService.getLocation(input)
+        .then(console.log)
 }
 
 function onAddMarker() {

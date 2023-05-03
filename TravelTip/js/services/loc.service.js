@@ -23,7 +23,7 @@ function getLocation(location) {
 `)
         .then(res => {
             // console.log(res.data.results[0])
-            // console.log('res.address_components:', res.data.results[0].address_components)
+            // console.log('res:', res.data.results)
             return res.data.results[0]
         }).then(res => ({
             lng: res.geometry.location.lng,
@@ -31,7 +31,7 @@ function getLocation(location) {
             country: res.address_components.filter(res => res.types.includes('country'))[0].long_name,
             city: res.address_components.filter(res => res.types.includes('locality'))[0].long_name,
             streetAdress: res.address_components.filter(res => res.types.includes('route'))[0].long_name,
-        })).then(console.log)
+        }))
         .catch(err => {
             console.log(err)
             throw err
