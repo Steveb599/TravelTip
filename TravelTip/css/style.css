@@ -5,6 +5,7 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: salmon;
 }
 
 .main-header {
@@ -27,6 +28,7 @@ body {
     justify-content: space-between;
     width: 100%;
     padding-inline: 20px;
+    margin-block-end: 10px;
 }
 
 main {
@@ -35,12 +37,11 @@ main {
 }
 
 .map {
-    margin-block-start: 100px;
     width: 50%;
     height: 50%;
     flex-basis: 50%;
 }
 
-.location-list {
+.location-lis-container {
     flex-basis: 50%;
 }
