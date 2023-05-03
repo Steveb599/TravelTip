@@ -9,7 +9,8 @@ window.onGetUserPos = onGetUserPos
 window.onGetLocation = onGetLocation
 
 function onInit() {
-    mapService.initMap()
+    mapService
+        .initMap()
         .then(() => {
             console.log('Map is ready')
         })
@@ -24,12 +25,15 @@ function getPosition() {
     })
 }
 
-function onGetLocation(ev) {
-    ev.preventDefault()
-    console.log(ev)
+function onGetLocation() {
     const input = ev.target.elements[0].value
-    locService.getLocation(input)
-        .then(console.log)
+    locService.getLocation(input).then(renderSelectedLocation)
+}
+
+function renderSelectedLocation(loc) {
+    console.log(loc)
+    const elCurrLoc = document.querySelector('.curr-location-title')
+    elCurrLoc.innerHTML = `Location: ${loc.steetAddress}, ${loc.city},  ${loc.country} `
 }
 
 function onAddMarker() {
@@ -38,24 +42,29 @@ function onAddMarker() {
 }
 
 function onGetLocs() {
-    locService.getLocs()
-        .then(locs => {
-            console.log('Locations:', locs)
-            document.querySelector('.locs').innerText = JSON.stringify(locs, null, 2)
-        })
+    locService.getLocs().then((locs) => {
+        console.log('Locations:', locs)
+        document.querySelector('.locs').innerText = JSON.stringify(
+            locs,
+            null,
+            2
+        )
+    })
 }
 
 function onGetUserPos() {
     getPosition()
-        .then(pos => {
+        .then((pos) => {
             console.log('User position is:', pos.coords)
-            document.querySelector('.user-pos').innerText =
-                `Latitude: ${pos.coords.latitude} - Longitude: ${pos.coords.longitude}`
+            document.querySelector(
+                '.user-pos'
+            ).innerText = `Latitude: ${pos.coords.latitude} - Longitude: ${pos.coords.longitude}`
         })
-        .catch(err => {
+        .catch((err) => {
             console.log('err!!!', err)
         })
 }
+
 function onPanTo() {
     console.log('Panning the Map')
     mapService.panTo(35.6895, 139.6917)
